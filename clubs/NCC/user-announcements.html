@@ -180,7 +180,7 @@
 <body>
     <!-- Navigation -->
     <nav class="main-nav">
-        <div class="left">User Dashboard</div>
+        <div class="left">User Announcements</div>
         <div class="right">
             <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
@@ -213,15 +213,14 @@
     <script>
         // Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyCJ9vaClojHn_IIY2YC8XOBlY7JtHmt5vM",
-            authDomain: "check-e4504.firebaseapp.com",
-            databaseURL: "https://check-e4504-default-rtdb.firebaseio.com",
-            projectId: "check-e4504",
-            storageBucket: "check-e4504.appspot.com",
-            messagingSenderId: "753492063096",
-            appId: "1:753492063096:web:e499ee4f211f8f9f82ce8d",
-            measurementId: "G-5TRQEHS5WM"
-        };
+            apiKey: "AIzaSyByiV9J9UFJyq4YZ7lsx4UOsb91K255HZE",
+            authDomain: "cmrec-nexus.firebaseapp.com",
+            projectId: "cmrec-nexus",
+            storageBucket: "cmrec-nexus.firebasestorage.app",
+            messagingSenderId: "1037530313729",
+            appId: "1:1037530313729:web:8c02807518980435517c00",
+            measurementId: "G-DKSXWND59G"
+          };
 
         // Initialize Firebase
         const app = firebase.initializeApp(firebaseConfig);
@@ -258,20 +257,19 @@
 
         function setupAnnouncementsListener() {
             const container = document.getElementById('announcementsContainer');
-
+        
             firestore.collection('announcements')
                 .where('club', '==', userClub)
-                .orderBy('pinned', 'desc')
-                .orderBy('timestamp', 'desc')
+                .orderBy('timestamp', 'desc') // Removed `.orderBy('pinned', 'desc')` to avoid composite index error
                 .onSnapshot({
                     next: (snapshot) => {
                         container.innerHTML = '';
-
+        
                         if (snapshot.empty) {
                             container.innerHTML = '<p>No announcements found</p>';
                             return;
                         }
-
+        
                         snapshot.forEach(doc => {
                             const data = doc.data();
                             const announcement = document.createElement('div');
@@ -280,22 +278,24 @@
                             announcement.innerHTML = `
                                 ${data.pinned ? '<div class="pinned-badge">Pinned</div>' : ''}
                                 <h3>${data.title}</h3>
-                                <div class="content">${data.content}</div>
+                                <div class="announcement-content">${data.content}</div>
                                 
                                 ${data.tags?.length ? `
                                     <div class="tags">
                                         ${data.tags.map(t => `<span class="tag">${t}</span>`).join('')}
                                     </div>
                                 ` : ''}
-
+        
                                 <div class="meta-info">
                                     Posted by ${data.author} • 
                                     ${data.timestamp?.toDate().toLocaleString()}
                                 </div>
                             `;
-
+        
                             container.appendChild(announcement);
                         });
+        
+                        document.getElementById("announcement-count").textContent = snapshot.size;
                     },
                     error: (error) => {
                         console.error('Announcements error:', error);

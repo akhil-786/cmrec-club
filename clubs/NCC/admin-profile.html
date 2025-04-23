@@ -158,7 +158,7 @@
 <body>
     <!-- Navigation -->
     <nav class="main-nav">
-        <div class="left">Admin Panel</div>
+        <div class="left">Admin</div>
         <div class="right">
             <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
@@ -167,8 +167,8 @@
     <nav class="sub-nav">
         <a href="admin-dashboard.html" class="sub-nav-item">Dashboard</a>
         <a href="admin-announcements.html" class="sub-nav-item">Announcements</a>
-        <a href="admin-profile.html" class="sub-nav-item active">Profile</a>
-        <a href="#" class="sub-nav-item">Settings</a>
+        <a href="#" class="sub-nav-item">Members</a>
+        <a href="admin-profile.html" class="sub-nav-item">Settings</a>
     </nav>
 
     <!-- Profile Content -->
@@ -224,15 +224,14 @@
     <script>
         // Firebase initialization
         const firebaseConfig = {
-            apiKey: "AIzaSyCJ9vaClojHn_IIY2YC8XOBlY7JtHmt5vM",
-            authDomain: "check-e4504.firebaseapp.com",
-            databaseURL: "https://check-e4504-default-rtdb.firebaseio.com",
-            projectId: "check-e4504",
-            storageBucket: "check-e4504.appspot.com",
-            messagingSenderId: "753492063096",
-            appId: "1:753492063096:web:e499ee4f211f8f9f82ce8d",
-            measurementId: "G-5TRQEHS5WM"
-        };
+            apiKey: "AIzaSyByiV9J9UFJyq4YZ7lsx4UOsb91K255HZE",
+            authDomain: "cmrec-nexus.firebaseapp.com",
+            projectId: "cmrec-nexus",
+            storageBucket: "cmrec-nexus.firebasestorage.app",
+            messagingSenderId: "1037530313729",
+            appId: "1:1037530313729:web:8c02807518980435517c00",
+            measurementId: "G-DKSXWND59G"
+          };
 
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();

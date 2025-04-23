@@ -1,5 +1,5 @@
- /* Base Styles */
- * {
+/* Base Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -90,87 +90,40 @@ body {
     padding: 30px;
 }
 
-.welcome-section {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.welcome-section img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.welcome-section h2 {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.welcome-section p {
-    color: #666;
-    margin: 5px 0;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.card h3 {
-    color: #333;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: #666;
-}
-
 /* Announcements Section */
 .announcements-section {
-    background: white;
+    flex: 2;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    height: 50vh; /* Fixed height for the outer container */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.8);
     display: flex;
     flex-direction: column;
+    height: 80vh; /* Adjusted height */
 }
 
 .announcements-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 10px 0;
     font-size: 1.5em;
     font-weight: bold;
-    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    z-index: 1;
 }
 
-.announcements-list-container {
+.announcements-list {
     flex-grow: 1;
-    overflow-y: auto; /* Make the inner container scrollable */
-    padding-right: 10px; /* Add padding to avoid content overlap with scrollbar */
+    overflow-y: auto;
+    padding-right: 10px;
 }
 
 /* Announcement Cards */
 .announcement-card {
     border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
     border-radius: 8px;
     background: linear-gradient(145deg, #ffffff, #e6e6e6);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.8);
@@ -187,44 +140,31 @@ body {
     top: 10px;
     right: 10px;
     background: #ffd700;
-    color: #333;
     padding: 3px 8px;
     border-radius: 3px;
     font-size: 0.8em;
     font-weight: bold;
 }
 
-.announcement-card h3 {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 1.1em;
-}
-
-.announcement-content {
-    color: #444;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    font-size: 0.95em;
-}
-
+/* Meta Info */
 .meta-info {
     color: #666;
-    font-size: 0.85em;
-    margin-top: 10px;
+    font-size: 0.9em;
+    margin-top: 15px;
+    border-top: 1px solid #ddd;
     padding-top: 10px;
-    border-top: 1px solid #eee;
 }
 
+/* Tags */
 .tags {
     margin-top: 10px;
-    display: flex;
-    gap: 8px;
+    font-size: 0.9em;
 }
 
 .tag {
+    display: inline-block;
     background: #e9ecef;
-    color: #333;
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 0.8em;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-right: 5px;
 }
